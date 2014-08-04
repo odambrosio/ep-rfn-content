@@ -4,32 +4,14 @@
 <rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
 <rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
 
-[rfnmix:epRfnMenuItem] mixin
- - menuName (string) mandatory internationalized indexed=no
-
-[rfnmix:epRfnComponent] > jmix:droppableContent mixin
-
-[rfnnt:epRfnContent] > jnt:content
-
-[rfnmix:epRfnBreadcrumbEnabled] mixin
-
-[rfnmix:epRfnI18nFile] mixin
- - fileNameRadix (string)
- - fileParentDirectory (weakreference, picker[type='file'])
-
-[rfnmix:epRfnPicture] mixin
- - picture (weakreference, picker[type='image'])
- - pictureAltText (string) internationalized
- - pictureCaption (string) internationalized
-
-[rfnnt:epRfnTextImage] > rfnnt:epRfnContent, jmix:editorialContent, rfnmix:epRfnPicture
+[rfnnt:epRfnTextImage] > jnt:content, jmix:editorialContent, rfnmix:epRfnPicture
  - subtitle1 (string) internationalized
  - subtitle2 (string) internationalized
  - content (string, richtext) internationalized
  - picturePosition (string, choicelist) internationalized indexed=no < 'positionLeft', 'positionRight'
  - pictureSize (string, choicelist) internationalized indexed=no < 'smallSize', 'normalSize', 'bigSize'
 
-[rfnnt:epRfnMultimediaElement] > rfnnt:epRfnContent, jmix:editorialContent, mix:title
+[rfnnt:epRfnMultimediaElement] > jnt:content, jmix:editorialContent, mix:title
  - contentMultimediaCaption (string) internationalized
  - contentMultimediaDescription (string, textarea) internationalized
  - contentMultimediaLongDescription (string, richtext) internationalized
@@ -41,30 +23,46 @@
  - contentMultimediaThumbnailUrl (weakreference, picker[type='image']) mandatory
  - contentMultimediaUrl (weakreference) mandatory
 
-[rfnnt:epRfnFormFile] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnI18nFile
+[rfnnt:epRfnFormFile] > jnt:content, mix:title, rfnmix:epRfnI18nFile
 
-[rfnnt:epRfnFormUrl] > rfnnt:epRfnContent, mix:title
+[rfnnt:epRfnFormUrl] > jnt:content, mix:title
  + formUrl (nt:base)
 
-[rfnnt:epRfnReferenceDocumentFile] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnI18nFile
+[rfnnt:epRfnReferenceDocumentFile] > jnt:content, mix:title, rfnmix:epRfnI18nFile
 
-[rfnnt:epRfnReferenceDocumentUrl] > rfnnt:epRfnContent, mix:title
+[rfnnt:epRfnReferenceDocumentUrl] > jnt:content, mix:title
  + documentUrl (nt:base)
 
-[rfnnt:epRfnBanner] > rfnnt:epRfnContent, rfnmix:epRfnComponent, rfnmix:epRfnPicture
+[rfnnt:epRfnIFrame] > jnt:content, jmix:link
+ - width (long)
+ - height (long)
+
+[rfnmix:epRfnComponent] > jmix:droppableContent mixin
+
+[rfnmix:epRfnBreadcrumbEnabled] mixin
+
+[rfnmix:epRfnI18nFile] mixin
+ - fileNameRadix (string)
+ - fileParentDirectory (weakreference, picker[type='file'])
+
+[rfnmix:epRfnMenuItem] mixin
+
+[rfnmix:epRfnPicture] mixin
+ - picture (weakreference, picker[type='image'])
+ - pictureAltText (string) internationalized
+ - pictureCaption (string) internationalized
+
+[rfnnt:epRfnBanner] > jnt:content, rfnmix:epRfnComponent, rfnmix:epRfnPicture
  - bannerHomepageUrl (string) indexed=no nofulltext
  - banneHomepageEnable (boolean) = 'false' indexed=no
  - activeOverlay (boolean) indexed=no
  - lightboxWidth (long)
  - ligntboxHeight (long)
 
-[rfnnt:epRfnIFrame] > rfnnt:epRfnContent, jmix:link
- - width (long)
- - height (long)
-
-[rfnnt:epRfnLink] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnComponent
-
-[rfnnt:epRfnTitle] > rfnnt:epRfnContent, rfnmix:epRfnComponent
+[rfnnt:epRfnTitle] > jnt:content, rfnmix:epRfnComponent
  - type (string, choicelist) mandatory indexed=no < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
  - text (string) mandatory internationalized
+
+[rfnnt:epRfnLink] > jnt:content, jmix:nodeReference, jmix:link, rfnmix:epRfnComponent, jmix:editorialContent
+ - j:linkType (string, choicelist[linkTypeInitializer,resourceBundle]) = 'none' mandatory
 
