@@ -45,8 +45,6 @@
  - fileNameRadix (string)
  - fileParentDirectory (weakreference, picker[type='file'])
 
-[rfnmix:epRfnMenuItem] mixin
-
 [rfnmix:epRfnPicture] mixin
  - picture (weakreference, picker[type='image'])
  - pictureAltText (string) internationalized
@@ -65,4 +63,6 @@
 
 [rfnnt:epRfnLink] > jnt:content, jmix:nodeReference, jmix:link, rfnmix:epRfnComponent, jmix:editorialContent
  - j:linkType (string, choicelist[linkTypeInitializer,resourceBundle]) = 'none' mandatory
+
+[rfnnt:epRfnTodayDate] > jnt:content, rfnmix:epRfnComponent, jmix:studioOnly
 
