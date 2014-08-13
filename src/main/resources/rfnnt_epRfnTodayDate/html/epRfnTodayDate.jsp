@@ -16,4 +16,4 @@
 <div class="date">
   <jsp:useBean id="now" class="java.util.Date"/>
   <fmt:formatDate value="${now}" pattern="dd MMM yyyy"/>
-</div
+</div>

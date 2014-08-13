@@ -4,13 +4,6 @@
 <rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
 <rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
 
-[rfnnt:epRfnTextImage] > jnt:content, jmix:editorialContent, rfnmix:epRfnPicture
- - subtitle1 (string) internationalized
- - subtitle2 (string) internationalized
- - content (string, richtext) internationalized
- - picturePosition (string, choicelist) internationalized indexed=no < 'positionLeft', 'positionRight'
- - pictureSize (string, choicelist) internationalized indexed=no < 'smallSize', 'normalSize', 'bigSize'
-
 [rfnnt:epRfnMultimediaElement] > jnt:content, jmix:editorialContent, mix:title
  - contentMultimediaCaption (string) internationalized
  - contentMultimediaDescription (string, textarea) internationalized
@@ -23,16 +16,6 @@
  - contentMultimediaThumbnailUrl (weakreference, picker[type='image']) mandatory
  - contentMultimediaUrl (weakreference) mandatory
 
-[rfnnt:epRfnFormFile] > jnt:content, mix:title, rfnmix:epRfnI18nFile
-
-[rfnnt:epRfnFormUrl] > jnt:content, mix:title
- + formUrl (nt:base)
-
-[rfnnt:epRfnReferenceDocumentFile] > jnt:content, mix:title, rfnmix:epRfnI18nFile
-
-[rfnnt:epRfnReferenceDocumentUrl] > jnt:content, mix:title
- + documentUrl (nt:base)
-
 [rfnnt:epRfnIFrame] > jnt:content, jmix:link
  - width (long)
  - height (long)
@@ -40,10 +23,6 @@
 [rfnmix:epRfnComponent] > jmix:droppableContent mixin
 
 [rfnmix:epRfnBreadcrumbEnabled] mixin
-
-[rfnmix:epRfnI18nFile] mixin
- - fileNameRadix (string)
- - fileParentDirectory (weakreference, picker[type='file'])
 
 [rfnmix:epRfnPicture] mixin
  - picture (weakreference, picker[type='image'])
@@ -65,4 +44,30 @@
  - j:linkType (string, choicelist[linkTypeInitializer,resourceBundle]) = 'none' mandatory
 
 [rfnnt:epRfnTodayDate] > jnt:content, rfnmix:epRfnComponent, jmix:studioOnly
+
+[rfnnt:epRfnInternationalizedFile] > jnt:content, mix:title
+ - documentEn (string, picker[type='"file"']) internationalized
+ - documentFr (string, picker[type='"file"']) internationalized
+ - documentDe (string, picker[type='"file"']) internationalized
+ - documentBg (string, picker[type='"file"']) internationalized
+ - documentEs (string, picker[type='"file"']) internationalized
+ - documentCz (string, picker[type='"file"']) internationalized
+ - documentDa (string, picker[type='"file"']) internationalized
+ - documentEt (string, picker[type='"file"']) internationalized
+ - documentEl (string, picker[type='"file"']) internationalized
+ - documentGa (string, picker[type='"file"']) internationalized
+ - documentHr (string, picker[type='"file"']) internationalized
+ - documentIt (string, picker[type='"file"']) internationalized
+ - documentLv (string, picker[type='"file"']) internationalized
+ - documentLt (string, picker[type='"file"']) internationalized
+ - documentHu (string, picker[type='"file"']) internationalized
+ - documentMt (string, picker[type='"file"']) internationalized
+ - documentNl (string, picker[type='"file"']) internationalized
+ - documentPl (string, picker[type='"file"']) internationalized
+ - documentPt (string, picker[type='"file"']) internationalized
+ - documentRo (string, picker[type='"file"']) internationalized
+ - documentSk (string, picker[type='"file"']) internationalized
+ - documentSl (string, picker[type='"file"']) internationalized
+ - documentFi (string, picker[type='"file"']) internationalized
+ - documentSv (string, picker[type='"file"']) internationalized
 
